@@ -3,8 +3,9 @@ from whatsforlunch.localsettings import CONSUMER_KEY, CONSUMER_SECRET, TOKEN_SEC
 
 
 def api_request(url_params):
-    """Returns response for API request."""
-    # Unsigned URL
+    """
+    Returns response for API request.
+    """
     consumer_key = CONSUMER_KEY
     consumer_secret = CONSUMER_SECRET
     token = TOKEN
@@ -17,7 +18,7 @@ def api_request(url_params):
 
     if url_params:
         encoded_params = urllib.urlencode(url_params)
-    url = 'http://%s%s?%s' % (host, path, encoded_params)
+    url = 'http://{}{}?{}'.format(host, path, encoded_params)
 
     # Sign the URL
     consumer = oauth2.Consumer(consumer_key, consumer_secret)
