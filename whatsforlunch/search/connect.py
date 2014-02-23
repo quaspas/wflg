@@ -1,7 +1,4 @@
-import json
-import urllib
-import urllib2
-import oauth2
+import json, urllib, urllib2, oauth2
 from whatsforlunch.localsettings import CONSUMER_KEY, CONSUMER_SECRET, TOKEN_SECRET, TOKEN
 
 
