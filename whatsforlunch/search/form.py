@@ -29,7 +29,7 @@ class SearchForm(forms.Form):
         required= False,
     )
 
-    radius_filter = forms.CharField(
+    radius = forms.CharField(
         required= False,
     )
 
@@ -41,20 +41,22 @@ class SearchForm(forms.Form):
         required= False,
     )
 
-    category_filter = forms.CharField(
+    category = forms.CharField(
         required= False,
     )
 
     def search(self):
+        # i want this to allow me to search by just location too?
+        # or always require full lat/long...
         url_params = {
             'latitude': self.clean['latitude'],
             'longitude': self.clean['longitude'],
             'accuracy': self.clean['accuracy'],
             'altitude': self.clean['altitude'],
             'altitude_accuracy': self.clean['altitude_accuracy'],
-            'radius_filter': self.clean['radius_filter'],
+            'radius_filter': self.clean['radius'],
             'term': self.clean['term'],
             'sort': self.clean['sort'],
-            'category_filter': self.clean['category_filter']
+            'category_filter': self.clean['category']
         }
         return api_request(url_params)

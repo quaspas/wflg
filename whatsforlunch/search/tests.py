@@ -28,10 +28,10 @@ class SearchFormTests(TestCase):
             'accuracy': '',
             'altitude': '',
             'altitude_accuracy': '',
-            'radius_filter': '',
+            'radius': '',
             'term': '',
             'sort': '',
-            'category_filter': '',
+            'category': '',
         }
         form = SearchForm(data=data)
         self.assertTrue(form.is_valid())
@@ -43,10 +43,10 @@ class SearchFormTests(TestCase):
             'accuracy': '',
             'altitude': '',
             'altitude_accuracy' : '',
-            'radius_filter' : '',
+            'radius': '',
             'term': '',
             'sort': '',
-            'category_filter': '',
+            'category': '',
         }
         form = SearchForm(data=data)
         self.assertFalse(form.is_valid())
@@ -66,10 +66,10 @@ class SearchViewTests(TestCase):
             'accuracy': '',
             'altitude': '',
             'altitude_accuracy': '',
-            'radius_filter': '',
+            'radius': '',
             'term': '',
             'sort': '',
-            'category_filter': '',
+            'category': '',
         }
         response = self.client.post(reverse('search.form'), data=data)
         self.assertEquals(response.status_code, 302)
