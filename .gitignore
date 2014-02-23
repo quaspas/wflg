@@ -7,6 +7,8 @@
 
 *.sublime-project
 *.sublime-workspace
+/whatsforlunch/localsettings.py
+
 
 #-------------------------------------------------------------------------------
 # JetBrains
