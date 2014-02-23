@@ -9,4 +9,5 @@ urlpatterns = patterns('',
      url(r'^$', HomeView.as_view(), name='home'),
 
      url(r'^account/', include('whatsforlunch.account.urls')),
+     url(r'^search/', include('whatsforlunch.search.urls')),
 )

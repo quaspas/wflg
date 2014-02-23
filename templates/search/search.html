@@ -4,9 +4,8 @@
     {% include '_include/header.html' %}
     {% include '_include/nav.html' %}
     <div id="{{ TEMPLATE_NAME }}-page" class="content container">
-        <h1>What's For Lunch Guys?</h1>
-        <a href="{% url 'account.login' %}">login</a>
-        <a href="{% url 'search.form' %}">search</a>
+        <h1>Search</h1>
+        {{ form }}
     </div>
     {% include '_include/footer.html' %}
 {% endblock %}
