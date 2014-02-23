@@ -5,7 +5,19 @@
     {% include '_include/nav.html' %}
     <div id="{{ TEMPLATE_NAME }}-page" class="content container">
         <h1>Search</h1>
-        {{ form }}
+        <form action="" method="post">
+            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+            <table>
+                {% for field in form  %}
+                    <tr>
+                        <td>{{ field.label }}</td>
+                        <td>{{ field }}</td>
+                        <td>{% if field.errors %}{{ field.errors }}{% endif %}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <button>Submit</button>
+        </form>
     </div>
     {% include '_include/footer.html' %}
 {% endblock %}
