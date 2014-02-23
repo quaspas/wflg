@@ -1,4 +1,5 @@
 from django import forms
+from whatsforlunch.search.connect import api_request
 
 
 class SearchForm(forms.Form):
@@ -44,3 +45,16 @@ class SearchForm(forms.Form):
         required= False,
     )
 
+    def search(self):
+        url_params = {
+            'latitude': self.clean['latitude'],
+            'longitude': self.clean['longitude'],
+            'accuracy': self.clean['accuracy'],
+            'altitude': self.clean['altitude'],
+            'altitude_accuracy': self.clean['altitude_accuracy'],
+            'radius_filter': self.clean['radius_filter'],
+            'term': self.clean['term'],
+            'sort': self.clean['sort'],
+            'category_filter': self.clean['category_filter']
+        }
+        return api_request(url_params)
