@@ -6,30 +6,28 @@ from whatsforlunch.search.form import SearchForm
 
 class SearchConnectTests(TestCase):
 
-    # test requires internet
     def test_connect_to_api(self):
-        # url = {
-        #     'term': 'bars',
-        #     'location': 'sf',
-        #     'limit': 1,
-        # }
-        # response = api_request(url_params=url)
-        # print response
-        # self.assertTrue(response)
-        pass
+        url = {
+            'term': 'bars',
+            'location': 'sf',
+            'limit': 1,
+        }
+        response = api_request(url_params=url)
+        self.assertTrue(response)
 
 
 class SearchFormTests(TestCase):
 
     def test_search_form_valid(self):
         data = {
-            'latitude': 'mylocation',
+            'location': 'toronto',
+            'latitude': '',
             'longitude': '',
             'accuracy': '',
             'altitude': '',
             'altitude_accuracy': '',
             'radius': '',
-            'term': '',
+            'term': 'bar',
             'sort': '',
             'category': '',
         }

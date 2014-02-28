@@ -9,8 +9,12 @@ class SearchForm(forms.Form):
     # or make them all update in front of the user as the adjust the map
 
     # location
+    location = forms.CharField(
+        required= False
+    )
+
     latitude = forms.CharField(
-        required= True,
+        required= False,
     )
 
     longitude = forms.CharField(
