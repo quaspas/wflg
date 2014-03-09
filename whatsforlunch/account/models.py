@@ -1,6 +1,7 @@
 import os
-from django.contrib.auth import models
+from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+
 
 def avatar_upload_to(instance, filename):
     if filename.split(os.sep):
