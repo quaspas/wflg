@@ -2,6 +2,29 @@ from django import forms
 from whatsforlunch.search.connect import api_request
 
 
+class SearchSimpleForm(forms.Form):
+
+    # ll=latitude,longitude,accuracy,altitude,altitude_accuracy
+    # make these hidden inputs and fill them using parameters from a map on screen
+    # or make them all update in front of the user as the adjust the map
+
+    # location
+    location = forms.CharField(
+        required= False
+    )
+
+    term = forms.CharField(
+        required= False,
+    )
+
+    def search(self):
+        url_params = {
+            'location': self.clean['latitude'],
+            'term': self.clean['term'],
+        }
+        return api_request(url_params)
+
+
 class SearchForm(forms.Form):
 
     # ll=latitude,longitude,accuracy,altitude,altitude_accuracy

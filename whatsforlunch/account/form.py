@@ -186,5 +186,5 @@ class AccountSettingsUpdateForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['full_name', 'language', 'avatar']
+        fields = ['full_name', 'avatar']
 
