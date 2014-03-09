@@ -4,9 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap-wysihtml5.css">
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/app{{ RESOURCE_VERSION }}.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/lib/foundation.min.css">
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
@@ -18,6 +16,8 @@
         </div>
         {% include '_include/footer.html' %}
     {% endblock %}
-    <script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/foundation.min.js"></script>
 </body>
 </html>
