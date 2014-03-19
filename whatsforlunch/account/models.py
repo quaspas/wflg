@@ -22,15 +22,16 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser):
 
     email           = models.CharField(max_length=254, unique=True)
-
-    full_name       = models.CharField(max_length=100)
-    is_staff        = models.BooleanField(default=False)
+    username        = models.CharField(max_length=100)
     is_active       = models.BooleanField(default=True)
-
-    created_on      = models.DateTimeField(auto_now_add=True)
-    updated_on      = models.DateTimeField(auto_now=True)
-
+    is_staff        = models.BooleanField(default=False)
+    date_joined     = models.DateTimeField(auto_now_add=True)
     avatar          = models.FileField(upload_to=avatar_upload_to, null=True, blank=True, max_length=255)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
+
+    objects = UserManager()
 
     class Meta:
         db_table = 'user'
