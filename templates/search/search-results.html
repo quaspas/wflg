@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    {% include '_include/header.html' %}
+    {% include '_include/nav.html' %}
+    <div id="{{ TEMPLATE_NAME }}-page" class="content container">
+        <h1>Results</h1>
+        <table>
+            {% for business in results.businesses %}
+            <tr>
+                <td>
+                    <div>
+                        {{ business.name }}
+                        {{ business.rating }}
+                        {{ business.snippet_text }}
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+    {% include '_include/footer.html' %}
+{% endblock %}

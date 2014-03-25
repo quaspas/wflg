@@ -5,7 +5,7 @@
     {% include '_include/nav.html' %}
     <div id="{{ TEMPLATE_NAME }}-page" class="content container">
         <h1>Search</h1>
-        <form action="" method="post">
+        <form action="/results" method="get">
             <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
             <table>
                 {% for field in form  %}
