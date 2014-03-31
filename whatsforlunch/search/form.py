@@ -11,10 +11,12 @@ class SearchSimpleForm(forms.Form):
     # location
     location = forms.CharField(widget=forms.TextInput(attrs={
         'name': 'location',
+        'placeholder': 'location',
     }))
 
     term = forms.CharField(widget=forms.TextInput(attrs={
         'name': 'term',
+        'placeholder': 'what do you feel like eating?',
     }))
 
     def search(self):
