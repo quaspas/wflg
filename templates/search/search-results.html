@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    {% include '_include/header.html' %}
-    {% include '_include/nav.html' %}
     <div id="{{ TEMPLATE_NAME }}-page" class="content container">
         <h1>Results</h1>
         <table>
@@ -10,9 +8,9 @@
             <tr>
                 <td>
                     <div>
-                        {{ business.name }}
-                        {{ business.rating }}
-                        {{ business.snippet_text }}
+                        <h4>{{ business.name }}</h4>
+                        <p>{{ business.snippet_text }}</p>
+                        <p>{{ business.rating }}</p>
                     </div>
                 </td>
             </tr>
