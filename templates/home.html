@@ -1,24 +1,17 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    {% include '_include/header.html' %}
-    {% include '_include/nav.html' %}
-    <div id="{{ TEMPLATE_NAME }}-page" class="content container">
+
+    <div class="content container">
         <h1>What's For Lunch Guys?</h1>
-        <a href="{% url 'account.login' %}">login</a>
         <form action="search" method="get">
             <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-            <table>
-                {% for field in form  %}
-                    <tr>
-                        <td>{{ field.label }}</td>
-                        <td>{{ field }}</td>
-                        <td>{% if field.errors %}{{ field.errors }}{% endif %}</td>
-                    </tr>
-                {% endfor %}
-            </table>
-            <button>Submit</button>
+                <div class="row">
+                    {{ form.location }}
+                    {{ form.term }}
+                    <button>Submit</button>
+                </div>
         </form>
     </div>
-    {% include '_include/footer.html' %}
+
 {% endblock %}

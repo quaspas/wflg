@@ -9,16 +9,8 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    {% block body %}
-        {% include '_include/header.html' %}
-        {% include '_include/nav.html' %}
-        <div id="{{ TEMPLATE_NAME }}-page" class="content container">
-            {% block content %}{% endblock %}
-        </div>
-        {% include '_include/footer.html' %}
-    {% endblock %}
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}js/lib/foundation.min.js"></script>
+    {% include '_include/header.html' %}
+    {% block body %}{% endblock %}
+    {% block javascript %}{% endblock %}
 </body>
 </html>
