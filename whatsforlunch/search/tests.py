@@ -21,7 +21,6 @@ class SearchViewTests(TestCase):
         response = self.client.get(reverse('search'))
         self.assertEquals(response.status_code, 302)
 
-
     def test_search_view_post_valid(self):
         data = {
             'latitude': 'toronto',

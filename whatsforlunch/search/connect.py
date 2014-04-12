@@ -2,7 +2,7 @@ import json, urllib, urllib2, oauth2
 from whatsforlunch.localsettings import CONSUMER_KEY, CONSUMER_SECRET, TOKEN_SECRET, TOKEN
 
 
-def api_request(url_params):
+def api_request(url_params, path='/v2/search'):
     """
     Returns response for API request.
     """
@@ -12,7 +12,6 @@ def api_request(url_params):
     token_secret = TOKEN_SECRET
 
     host = 'api.yelp.com'
-    path = '/v2/search'
 
     encoded_params = ''
 
