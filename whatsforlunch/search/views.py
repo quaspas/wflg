@@ -6,7 +6,7 @@ from whatsforlunch.search.form import SearchSimpleForm
 
 class SearchView(TemplateView):
 
-    template_name = 'search/search-results.html'
+    template_name = 'home.html'
 
     def get(self, request):
         form = SearchSimpleForm(data=request.GET)

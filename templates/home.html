@@ -1,17 +1,33 @@
 {% extends 'base.html' %}
-
 {% block body %}
-
     <div class="content container">
         <h1>What's For Lunch Guys?</h1>
         <form action="search" method="get">
             <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-                <div class="row">
-                    {{ form.location }}
-                    {{ form.term }}
-                    <button>Submit</button>
-                </div>
+            <div class="row">
+                {{ form.location }}
+                {{ form.term }}
+                <button>Submit</button>
+            </div>
         </form>
+    {% if results %}
+        <style>
+        .dropzone {border:1px solid #aaaaaa;}
+        .dragarea {z-index:999;}
+        </style>
+        <div class="row">
+            {# Options #}
+            <div class="col-md-6 dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+            {% for business in results.businesses|slice:":6" %}
+                <div id="{{ business.id }}" class="bg-info dragarea" draggable="true" draggable="true" ondragstart="drag(event)">
+                    <h4>{{ business.name }}</h4><p>{{ business.snippet_text }}</p><p>{{ business.rating }}</p>
+                </div>
+            {% endfor %}
+           </div>
+           {# Picks #}
+            <div class="col-md-6 dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+           </div>
+        </div>
+    {% endif %}
     </div>
-
 {% endblock %}
